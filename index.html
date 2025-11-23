@@ -150,23 +150,26 @@ I like to play games, such as:</p>
 </audio>
 
 <script>
+const btn = document.getElementById("uselessBtn");
+const pressCount = document.getElementById("pressCount");
+const visitCount = document.getElementById("visitCount");
 
-// Global button counter
-document.getElementById("uselessBtn").addEventListener("click", () => {
-    fetch("https://api.countapi.xyz/hit/mysite/buttonpress")
-        .then(res => res.json())
-        .then(data => {
-            document.getElementById("pressCount").textContent = data.value;
-        });
-});
+// Get and increment visits
+fetch("https://api.countapi.xyz/get/mysite/visits")
+  .then(res => res.json())
+  .then(data => visitCount.textContent = data.value);
 
-// Global visit counter
 fetch("https://api.countapi.xyz/hit/mysite/visits")
   .then(res => res.json())
-  .then(data => {
-      document.getElementById("visitCount").textContent = data.value;
-  });
+  .then(data => visitCount.textContent = data.value);
 
+// Increment button press
+btn.addEventListener("click", () => {
+  fetch("https://api.countapi.xyz/hit/mysite/buttonpress")
+    .then(res => res.json())
+    .then(data => pressCount.textContent = data.value);
+});
+ 
     // Quotes rotation
     const quotes = [
         "Learning web dev is fun!",
@@ -192,6 +195,7 @@ fetch("https://api.countapi.xyz/hit/mysite/visits")
 
 </body>
 </html>
+
 
 
 
