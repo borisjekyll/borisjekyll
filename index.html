@@ -102,38 +102,45 @@ I like to play games, such as:</p>
 <img src="https://media.4-paws.org/d/2/5/f/d25ff020556e4b5eae747c55576f3b50886c0b90/cut%20cat%20serhio%2002-1813x1811-720x719.jpg" alt="Cute cat"><br>
 
 <h3>The more web stuff I learn, the more will be added to this site!</h3>
+<h1><b>FUN ZONE!!</b></h1>
+
+<p>Global visits: <span id="visitCount">0</span></p>
+<p>Global useless button presses: <span id="pressCount">0</span></p>
 
 <!-- Useless button -->
 <button class="useless-button" id="uselessBtn">!</button>
 <p>You've pressed the useless button <span id="pressCount">0</span> times.</p>
 
-<!-- Visitor counter -->
-<div class="visitor-counter">
-    Visitors:
-    <img src="https://hitwebcounter.com/counter/counter.php?page=1234567&style=0006&nbdigits=5&type=page&initCount=0" title="Web Counter" alt="Visitor Counter" border="0">
-</div>
-
 <!-- Spinning quote -->
 <div class="spinning-quote" id="quoteBox">
     <p id="quoteText">"Learning web dev is fun!"</p>
 </div>
-
+    
 <!-- Music player -->
 <audio id="musicPlayer" autoplay loop>
-    <source src="https://example.com/minecraft_song1.mp3" type="audio/mpeg">
-    <source src="https://example.com/minecraft_song2.mp3" type="audio/mpeg">
+    <source src="music/miceonvenus.mp3" type="audio/mpeg">
+    <source src="music/dreiton.mp3" type="audio/mpeg">
+    <source src="music/ariamath.mp3" type= "audio/mpeg">
     Your browser does not support the audio element.
 </audio>
 
 <script>
-    // Button press counter
-    const button = document.getElementById('uselessBtn');
-    const countDisplay = document.getElementById('pressCount');
-    let count = 0;
-    button.addEventListener('click', () => {
-        count++;
-        countDisplay.textContent = count;
-    });
+
+// Global button counter
+document.getElementById("uselessBtn").addEventListener("click", () => {
+    fetch("https://api.countapi.xyz/hit/mysite/buttonpress")
+        .then(res => res.json())
+        .then(data => {
+            document.getElementById("pressCount").textContent = data.value;
+        });
+});
+
+// Global visit counter
+fetch("https://api.countapi.xyz/hit/mysite/visits")
+  .then(res => res.json())
+  .then(data => {
+      document.getElementById("visitCount").textContent = data.value;
+  });
 
     // Quotes rotation
     const quotes = [
@@ -160,3 +167,4 @@ I like to play games, such as:</p>
 
 </body>
 </html>
+
