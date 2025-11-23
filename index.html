@@ -1,84 +1,117 @@
-<html>
-  <head>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hello!</title>
-    <link rel="stylesheet" href="styles.css" />
-  </head>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Dark gradient animation */
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
 
-  <body>
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            background: linear-gradient(-45deg, #1a1a1a, #222222, #111111, #2a2a2a);
+            background-size: 400% 400%;
+            animation: gradientShift 15s ease infinite;
+            color: #e0e0e0;
+        }
+
+        h1.title {
+            color: #f0f0f0;
+        }
+
+        h2, h3, h6 {
+            color: #cccccc;
+        }
+
+        p {
+            margin-bottom: 15px;
+        }
+
+        ul {
+            margin-left: 20px;
+        }
+
+        a {
+            color: #1a73e8;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        a:hover {
+            color: #ff4081;
+            text-decoration: underline;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            margin-top: 10px;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+        }
+
+        .useless-button {
+            display: inline-block;
+            width: 60px;
+            height: 60px;
+            background-color: #ff3b3b;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 60px;
+            cursor: pointer;
+            font-weight: bold;
+            margin-top: 10px;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .useless-button:hover {
+            transform: scale(1.2);
+            box-shadow: 0 0 15px #ff3b3b;
+        }
+
+    </style>
+</head>
+<body>
     <h1 class="title">This is my page!</h1>
     <h2>By the way, I'm <u>borisjekyll</u>!</h2>
 
-    <p>
-      Here's some things about me!<br>
-      I like to play games, such as:<br>
-
-      <ul>
+    <p>Here's some things about me!<br>
+    I like to play games, such as:</p>
+    <ul>
         <li><a href="https://www.minecraft.net/en-us">Minecraft</a></li>
         <li><a href="https://roblox.com">Roblox</a></li>
-        <li>
-          <a href="https://teamfortress.com">Team Fortress 2</a>
-          (though not so much anymore)
-        </li>
-      </ul>
+        <li><a href="https://teamfortress.com">Team Fortress 2</a> (though not so much anymore)</li>
+    </ul>
 
-      I'm a big tech nerd, and I'm learning webdev, obviously!<br>
-      My favorite streamer is <a href="https://www.youtube.com/@yourfavfem">Fem</a>, and my favorite YouTuber is<a href="https://www.youtube.com/@ParrotX2">ParrotX2</a> <br>
-      Here's some of my cool beans friends:
+    <p>I'm a big tech nerd, and I'm learning webdev, obviously!</p>
+    <p>My favorite streamer is <a href="https://www.youtube.com/@yourfavfem">Fem</a>, and my favorite YouTuber is <a href="https://www.youtube.com/@ParrotX2">ParrotX2</a></p>
 
-      <ul>
+    <p>Here's some of my cool beans friends:</p>
+    <ul>
         <li><a href="https://rupu.carrd.co">Rupu❤️</a></li>
         <li>Suchi😼❤️</li>
         <li>Silencer and Dark_Vanessa💞</li>
-      </ul>
+    </ul>
 
-      Anyways, you get a <b>HUUGE</b> picture of a cat!
-    </p>
-    <img src="https://media.4-paws.org/d/2/5/f/d25ff020556e4b5eae747c55576f3b50886c0b90/cut%20cat%20serhio%2002-1813x1811-720x719.jpg"><br>
+    <p>Anyways, you get a <b>HUUGE</b> picture of a cat!</p>
+    <img src="https://media.4-paws.org/d/2/5/f/d25ff020556e4b5eae747c55576f3b50886c0b90/cut%20cat%20serhio%2002-1813x1811-720x719.jpg" alt="Cute cat"><br>
+
     <h3>The more web stuff I learn, the more will be added to this site!</h3>
 
-    <!-- NEW FUN STUFF SECTION -->
-    <div id="fun-section">
-      <h3>Fun Stuff!</h3>
+    <!-- Useless button -->
+    <button class="useless-button">!</button>
 
-      <!-- Rotating quote -->
-      <p><b>Random Quote:</b> <span id="quote"></span></p>
-
-      <!-- Visitor counter -->
-      <p><b>You've visited this page:</b> <span id="visits">0</span> times</p>
-
-      <!-- Useless button -->
-      <button id="useless-button">Do absolutely nothing</button>
-      <p>You clicked the useless button <span id="clicks">0</span> times.</p>
-    </div>
-
-    <h6>This my first website.</h6>
-
-    <!-- JAVASCRIPT FOR EXTRA FEATURES -->
-    <script>
-      // --- Rotating quote ---
-      const quotes = [
-        "Learning one div at a time.",
-        "This site is held together by pure willpower.",
-        "Webdev is just controlled chaos.",
-        "I promise this will get cooler.",
-        "Code first, ask questions later."
-      ];
-      document.getElementById("quote").textContent =
-        quotes[Math.floor(Math.random() * quotes.length)];
-
-      // --- Visitor counter ---
-      let visits = localStorage.getItem("visits");
-      visits = visits ? Number(visits) + 1 : 1;
-      localStorage.setItem("visits", visits);
-      document.getElementById("visits").textContent = visits;
-
-      // --- Useless button counter ---
-      let clicks = 0;
-      document.getElementById("useless-button").onclick = () => {
-        clicks++;
-        document.getElementById("clicks").textContent = clicks;
-      };
-    </script>
-  </body>
+    <h6>This is my first website.</h6>
+</body>
 </html>
-
