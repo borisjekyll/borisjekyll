@@ -6,23 +6,29 @@
 <title>Hello!</title>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
 <style>
-    /* Dark gradient background animation */
-    @keyframes gradientShift {
-        0% { background-position: 0% 50%; }
-        50% { background-position: 100% 50%; }
-        100% { background-position: 0% 50%; }
-    }
-
     body {
-        font-family: 'Inter', sans-serif;
-        line-height: 1.6;
-        margin: 0;
-        padding: 20px;
-        background: linear-gradient(-45deg, #1a1a1a, #222222, #111111, #2a2a2a);
-        background-size: 400% 400%;
-        animation: gradientShift 15s ease infinite;
-        color: #e0e0e0;
-    }
+    font-family: 'Inter', sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 20px;
+    background: linear-gradient(-45deg, 
+        #1a0033,  /* very dark purple */
+        #001144,  /* dark navy blue */
+        #003311,  /* dark green */
+        #330011,  /* dark maroon */
+        #110033   /* very dark indigo */
+    );
+    background-size: 400% 400%;
+    animation: gradientShift 15s ease infinite;
+    color: #e0e0e0; /* light text so it’s readable */
+}
+
+@keyframes gradientShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
 
     h1.title { color: #f0f0f0; }
     h2, h3, h6 { color: #cccccc; }
@@ -69,6 +75,7 @@
     .spinning-quote {
         left: 50%;            /* center horizontally */
         right: auto;          /* override right */
+        bottom: 100px;
         transform: translateX(50%); /* adjust for center */
     }
 }
@@ -185,5 +192,6 @@ fetch("https://api.countapi.xyz/hit/mysite/visits")
 
 </body>
 </html>
+
 
 
