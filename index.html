@@ -22,7 +22,7 @@
       </ul>
 
       I'm a big tech nerd, and I'm learning webdev, obviously!<br>
-      My favorite streamer is <a href="https://www.youtube.com/@yourfavfem/featured">Fem</a>, and my favorite YouTuber is <a href="https://www.youtube.com/@ParrotX2">ParrotX2</a><br>
+      My favorite streamer is <a href="https://www.youtube.com/@yourfavfem">Fem</a>, and my favorite YouTuber is<a href="https://www.youtube.com/@ParrotX2">ParrotX2</a> <br>
       Here's some of my cool beans friends:
 
       <ul>
@@ -33,12 +33,52 @@
 
       Anyways, you get a <b>HUUGE</b> picture of a cat!
     </p>
-
+    <img src="https://media.4-paws.org/d/2/5/f/d25ff020556e4b5eae747c55576f3b50886c0b90/cut%20cat%20serhio%2002-1813x1811-720x719.jpg"><br>
     <h3>The more web stuff I learn, the more will be added to this site!</h3>
 
-    <img src="https://media.4-paws.org/d/2/5/f/d25ff020556e4b5eae747c55576f3b50886c0b90/cut%20cat%20serhio%2002-1813x1811-720x719.jpg"><br>
+    <!-- NEW FUN STUFF SECTION -->
+    <div id="fun-section">
+      <h3>Fun Stuff!</h3>
+
+      <!-- Rotating quote -->
+      <p><b>Random Quote:</b> <span id="quote"></span></p>
+
+      <!-- Visitor counter -->
+      <p><b>You've visited this page:</b> <span id="visits">0</span> times</p>
+
+      <!-- Useless button -->
+      <button id="useless-button">Do absolutely nothing</button>
+      <p>You clicked the useless button <span id="clicks">0</span> times.</p>
+    </div>
 
     <h6>This my first website.</h6>
+
+    <!-- JAVASCRIPT FOR EXTRA FEATURES -->
+    <script>
+      // --- Rotating quote ---
+      const quotes = [
+        "Learning one div at a time.",
+        "This site is held together by pure willpower.",
+        "Webdev is just controlled chaos.",
+        "I promise this will get cooler.",
+        "Code first, ask questions later."
+      ];
+      document.getElementById("quote").textContent =
+        quotes[Math.floor(Math.random() * quotes.length)];
+
+      // --- Visitor counter ---
+      let visits = localStorage.getItem("visits");
+      visits = visits ? Number(visits) + 1 : 1;
+      localStorage.setItem("visits", visits);
+      document.getElementById("visits").textContent = visits;
+
+      // --- Useless button counter ---
+      let clicks = 0;
+      document.getElementById("useless-button").onclick = () => {
+        clicks++;
+        document.getElementById("clicks").textContent = clicks;
+      };
+    </script>
   </body>
 </html>
 
