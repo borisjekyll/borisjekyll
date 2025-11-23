@@ -49,24 +49,42 @@
     }
     .useless-button:hover { transform: scale(1.2); box-shadow: 0 0 15px #ff3b3b; }
 
-    /* Spinning quote */
+.spinning-quote {
+    position: fixed;
+    bottom: 50px;
+    right: 50px; /* default for mobile */
+    background: rgba(50,50,50,0.7);
+    color: #fff;
+    padding: 15px 20px;
+    border-radius: 15px;
+    box-shadow: 0 0 15px rgba(0,0,0,0.5);
+    transform-origin: center center;
+    animation: spin 60s linear infinite;
+    max-width: 250px;       /* prevent clipping */
+    word-wrap: break-word;  /* break long quotes */
+}
+
+/* Desktop adjustments */
+@media screen and (min-width: 900px) {
     .spinning-quote {
-        position: fixed;
-        bottom: 50px;
-        right: 50px;
-        background: rgba(50,50,50,0.7);
-        color: #fff;
-        padding: 15px 20px;
-        border-radius: 15px;
-        box-shadow: 0 0 15px rgba(0,0,0,0.5);
-        transform-origin: center center;
-        animation: spin 60s linear infinite;
+        left: 50%;            /* center horizontally */
+        right: auto;          /* override right */
+        transform: translateX(50%); /* adjust for center */
     }
-    @keyframes spin {
-        from { transform: rotate(0deg); }
-        to { transform: rotate(360deg); }
-    }
-    .spinning-quote p { margin: 0; font-size: 1rem; text-align: center; font-style: italic; }
+}
+
+@keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+.spinning-quote p { 
+    margin: 0; 
+    font-size: 1rem; 
+    text-align: center; 
+    font-style: italic; 
+}
+
 
     /* Visitor counter style */
     .visitor-counter {
@@ -167,4 +185,5 @@ fetch("https://api.countapi.xyz/hit/mysite/visits")
 
 </body>
 </html>
+
 
