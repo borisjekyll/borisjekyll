@@ -192,9 +192,48 @@ btn.addEventListener("click", () => {
 </script>
 
 <h6>This is my first website.</h6>
+    
+<script type="module">
+import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.1/firebase-app.js";
+import { getDatabase, ref, runTransaction } from "https://www.gstatic.com/firebasejs/9.22.1/firebase-database.js";
+
+const firebaseConfig = {
+  apiKey: "AIzaSyBdad2E0vSfilhx8niq1DJ6EjY9uFn4uJE",
+  authDomain: "visit-and-button-counter-db.firebaseapp.com",
+  databaseURL: "https://visit-and-button-counter-db-default-rtdb.firebaseio.com",
+  projectId: "visit-and-button-counter-db",
+  storageBucket: "visit-and-button-counter-db.firebasestorage.app",
+  messagingSenderId: "688820396472",
+  appId: "1:688820396472:web:11f1b809554db6916cef4d",
+  measurementId: "G-LQ8PMXWXHP"
+};
+
+const app = initializeApp(firebaseConfig);
+const db = getDatabase(app);
+
+// Visitor counter
+const visitRef = ref(db, 'visits');
+runTransaction(visitRef, current => (current || 0) + 1)
+  .then(snapshot => {
+    document.getElementById("visitCount").textContent = snapshot.snapshot.val();
+  });
+
+// Button press counter
+const buttonRef = ref(db, 'buttonPresses');
+const btn = document.getElementById("uselessBtn");
+const pressCount = document.getElementById("pressCount");
+
+btn.addEventListener("click", () => {
+  runTransaction(buttonRef, current => (current || 0) + 1)
+    .then(snapshot => {
+      pressCount.textContent = snapshot.snapshot.val();
+    });
+});
+</script>
 
 </body>
 </html>
+
 
 
 
