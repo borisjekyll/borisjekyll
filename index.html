@@ -1,117 +1,162 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hello!</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-    <style>
-        /* Dark gradient animation */
-        @keyframes gradientShift {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hello!</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+    /* Dark gradient background animation */
+    @keyframes gradientShift {
+        0% { background-position: 0% 50%; }
+        50% { background-position: 100% 50%; }
+        100% { background-position: 0% 50%; }
+    }
 
-        body {
-            font-family: 'Inter', sans-serif;
-            line-height: 1.6;
-            margin: 0;
-            padding: 20px;
-            background: linear-gradient(-45deg, #1a1a1a, #222222, #111111, #2a2a2a);
-            background-size: 400% 400%;
-            animation: gradientShift 15s ease infinite;
-            color: #e0e0e0;
-        }
+    body {
+        font-family: 'Inter', sans-serif;
+        line-height: 1.6;
+        margin: 0;
+        padding: 20px;
+        background: linear-gradient(-45deg, #1a1a1a, #222222, #111111, #2a2a2a);
+        background-size: 400% 400%;
+        animation: gradientShift 15s ease infinite;
+        color: #e0e0e0;
+    }
 
-        h1.title {
-            color: #f0f0f0;
-        }
+    h1.title { color: #f0f0f0; }
+    h2, h3, h6 { color: #cccccc; }
+    p { margin-bottom: 15px; }
+    ul { margin-left: 20px; }
+    a { color: #1a73e8; text-decoration: none; transition: color 0.3s; }
+    a:hover { color: #ff4081; text-decoration: underline; }
+    img { max-width: 100%; height: auto; margin-top: 10px; border-radius: 10px; box-shadow: 0 4px 12px rgba(0,0,0,0.5); }
 
-        h2, h3, h6 {
-            color: #cccccc;
-        }
+    .useless-button {
+        display: inline-block;
+        width: 60px;
+        height: 60px;
+        background-color: #ff3b3b;
+        color: white;
+        border: none;
+        border-radius: 50%;
+        text-align: center;
+        line-height: 60px;
+        cursor: pointer;
+        font-weight: bold;
+        margin-top: 10px;
+        transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .useless-button:hover { transform: scale(1.2); box-shadow: 0 0 15px #ff3b3b; }
 
-        p {
-            margin-bottom: 15px;
-        }
+    /* Spinning quote */
+    .spinning-quote {
+        position: fixed;
+        bottom: 50px;
+        right: 50px;
+        background: rgba(50,50,50,0.7);
+        color: #fff;
+        padding: 15px 20px;
+        border-radius: 15px;
+        box-shadow: 0 0 15px rgba(0,0,0,0.5);
+        transform-origin: center center;
+        animation: spin 60s linear infinite;
+    }
+    @keyframes spin {
+        from { transform: rotate(0deg); }
+        to { transform: rotate(360deg); }
+    }
+    .spinning-quote p { margin: 0; font-size: 1rem; text-align: center; font-style: italic; }
 
-        ul {
-            margin-left: 20px;
-        }
+    /* Visitor counter style */
+    .visitor-counter {
+        margin-top: 15px;
+    }
 
-        a {
-            color: #1a73e8;
-            text-decoration: none;
-            transition: color 0.3s;
-        }
-
-        a:hover {
-            color: #ff4081;
-            text-decoration: underline;
-        }
-
-        img {
-            max-width: 100%;
-            height: auto;
-            margin-top: 10px;
-            border-radius: 10px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.5);
-        }
-
-        .useless-button {
-            display: inline-block;
-            width: 60px;
-            height: 60px;
-            background-color: #ff3b3b;
-            color: white;
-            border: none;
-            border-radius: 50%;
-            text-align: center;
-            line-height: 60px;
-            cursor: pointer;
-            font-weight: bold;
-            margin-top: 10px;
-            transition: transform 0.3s, box-shadow 0.3s;
-        }
-
-        .useless-button:hover {
-            transform: scale(1.2);
-            box-shadow: 0 0 15px #ff3b3b;
-        }
-
-    </style>
+</style>
 </head>
 <body>
-    <h1 class="title">This is my page!</h1>
-    <h2>By the way, I'm <u>borisjekyll</u>!</h2>
 
-    <p>Here's some things about me!<br>
-    I like to play games, such as:</p>
-    <ul>
-        <li><a href="https://www.minecraft.net/en-us">Minecraft</a></li>
-        <li><a href="https://roblox.com">Roblox</a></li>
-        <li><a href="https://teamfortress.com">Team Fortress 2</a> (though not so much anymore)</li>
-    </ul>
+<h1 class="title">This is my page!</h1>
+<h2>By the way, I'm <u>borisjekyll</u>!</h2>
 
-    <p>I'm a big tech nerd, and I'm learning webdev, obviously!</p>
-    <p>My favorite streamer is <a href="https://www.youtube.com/@yourfavfem">Fem</a>, and my favorite YouTuber is <a href="https://www.youtube.com/@ParrotX2">ParrotX2</a></p>
+<p>Here's some things about me!<br>
+I like to play games, such as:</p>
+<ul>
+    <li><a href="https://www.minecraft.net/en-us">Minecraft</a></li>
+    <li><a href="https://roblox.com">Roblox</a></li>
+    <li><a href="https://teamfortress.com">Team Fortress 2</a> (though not so much anymore)</li>
+</ul>
 
-    <p>Here's some of my cool beans friends:</p>
-    <ul>
-        <li><a href="https://rupu.carrd.co">Rupu❤️</a></li>
-        <li>Suchi😼❤️</li>
-        <li>Silencer and Dark_Vanessa💞</li>
-    </ul>
+<p>I'm a big tech nerd, and I'm learning webdev, obviously!</p>
+<p>My favorite streamer is <a href="https://www.youtube.com/@yourfavfem">Fem</a>, and my favorite YouTuber is <a href="https://www.youtube.com/@ParrotX2">ParrotX2</a></p>
 
-    <p>Anyways, you get a <b>HUUGE</b> picture of a cat!</p>
-    <img src="https://media.4-paws.org/d/2/5/f/d25ff020556e4b5eae747c55576f3b50886c0b90/cut%20cat%20serhio%2002-1813x1811-720x719.jpg" alt="Cute cat"><br>
+<p>Here's some of my cool beans friends:</p>
+<ul>
+    <li><a href="https://rupu.carrd.co">Rupu❤️</a></li>
+    <li>Suchi😼❤️</li>
+    <li>Silencer and Dark_Vanessa💞</li>
+</ul>
 
-    <h3>The more web stuff I learn, the more will be added to this site!</h3>
+<p>Anyways, you get a <b>HUUGE</b> picture of a cat!</p>
+<img src="https://media.4-paws.org/d/2/5/f/d25ff020556e4b5eae747c55576f3b50886c0b90/cut%20cat%20serhio%2002-1813x1811-720x719.jpg" alt="Cute cat"><br>
 
-    <!-- Useless button -->
-    <button class="useless-button">!</button>
+<h3>The more web stuff I learn, the more will be added to this site!</h3>
 
-    <h6>This is my first website.</h6>
+<!-- Useless button -->
+<button class="useless-button" id="uselessBtn">!</button>
+<p>You've pressed the useless button <span id="pressCount">0</span> times.</p>
+
+<!-- Visitor counter -->
+<div class="visitor-counter">
+    Visitors:
+    <img src="https://hitwebcounter.com/counter/counter.php?page=1234567&style=0006&nbdigits=5&type=page&initCount=0" title="Web Counter" alt="Visitor Counter" border="0">
+</div>
+
+<!-- Spinning quote -->
+<div class="spinning-quote" id="quoteBox">
+    <p id="quoteText">"Learning web dev is fun!"</p>
+</div>
+
+<!-- Music player -->
+<audio id="musicPlayer" autoplay loop>
+    <source src="https://example.com/minecraft_song1.mp3" type="audio/mpeg">
+    <source src="https://example.com/minecraft_song2.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+</audio>
+
+<script>
+    // Button press counter
+    const button = document.getElementById('uselessBtn');
+    const countDisplay = document.getElementById('pressCount');
+    let count = 0;
+    button.addEventListener('click', () => {
+        count++;
+        countDisplay.textContent = count;
+    });
+
+    // Quotes rotation
+    const quotes = [
+        "Learning web dev is fun!",
+        "Code, eat, sleep, repeat.",
+        "Every line of code is a small victory.",
+        "Stay curious and keep experimenting!"
+    ];
+    let current = 0;
+    const quoteText = document.getElementById('quoteText');
+    setInterval(() => {
+        current = (current + 1) % quotes.length;
+        quoteText.textContent = quotes[current];
+    }, 5000); // every 5 seconds
+
+    // Music autoplay workaround for modern browsers
+    const musicPlayer = document.getElementById('musicPlayer');
+    document.body.addEventListener('click', () => {
+        if(musicPlayer.paused) musicPlayer.play();
+    });
+</script>
+
+<h6>This is my first website.</h6>
+
 </body>
 </html>
